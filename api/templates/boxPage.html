@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+        <head>
+                <meta charset="utf-8"/>
+                <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+                <title>Vitrina Verde Dashboard</title>
+                <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+                <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400&amp;family=Space+Grotesk:wght@500;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+                <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+                <script id="tailwind-config">
+                        tailwind.config = {
+                                darkMode: "class",
+                                theme: {
+                                        extend: {
+                                                "colors": {
+                                                                                "secondary-fixed": "#e3e4ce",
+                                                                                "outline-variant": "#c8c7bc",
+                                                                                "on-tertiary-container": "#c3b2c3",
+                                                                                "on-tertiary-fixed-variant": "#504351",
+                                                                                "on-error-container": "#93000a",
+                                                                                "on-secondary-fixed": "#1a1d0f",
+                                                                                "surface-container-low": "#f7f3ef",
+                                                                                "error-container": "#ffdad6",
+                                                                                "primary-fixed": "#e4e4c9",
+                                                                                "on-secondary-container": "#646654",
+                                                                                "surface-container": "#f1edea",
+                                                                                "on-secondary-fixed-variant": "#464838",
+                                                                                "tertiary-fixed-dim": "#d3c1d2",
+                                                                                "secondary-container": "#e3e4ce",
+                                                                                "primary": "#484a36",
+                                                                                "surface-tint": "#5e604b",
+                                                                                "on-primary": "#ffffff",
+                                                                                "surface-container-high": "#ebe8e4",
+                                                                                "on-tertiary-fixed": "#231824",
+                                                                                "primary-fixed-dim": "#c7c8ae",
+                                                                                "inverse-primary": "#c7c8ae",
+                                                                                "tertiary": "#3a2e3b",
+                                                                                "on-primary-fixed": "#1b1d0c",
+                                                                                "primary-container": "#484a36",
+                                                                                "surface": "#fcf9f5",
+                                                                                "outline": "#78776e",
+                                                                                "on-background": "#1c1c1a",
+                                                                                "inverse-surface": "#31302e",
+                                                                                "surface-bright": "#fcf9f5",
+                                                                                "inverse-on-surface": "#f4f0ed",
+                                                                                "on-surface": "#1c1c1a",
+                                                                                "secondary": "#5e604f",
+                                                                                "surface-container-lowest": "#ffffff",
+                                                                                "on-tertiary": "#ffffff",
+                                                                                "background": "#fcf9f5",
+                                                                                "on-primary-fixed-variant": "#464834",
+                                                                                "on-primary-container": "#b8b9a0",
+                                                                                "error": "#ba1a1a",
+                                                                                "tertiary-fixed": "#f0ddee",
+                                                                                "tertiary-container": "#514452",
+                                                                                "secondary-fixed-dim": "#c7c8b3",
+                                                                                "surface-container-highest": "#e5e2de",
+                                                                                "surface-variant": "#e5e2de",
+                                                                                "surface-dim": "#ddd9d6",
+                                                                                "on-surface-variant": "#47473f",
+                                                                                "on-secondary": "#ffffff",
+                                                                                "on-error": "#ffffff"
+                                                },
+                                                "borderRadius": {
+                                                                                "DEFAULT": "0.25rem",
+                                                                                "lg": "0.5rem",
+                                                                                "xl": "0.75rem",
+                                                                                "full": "9999px"
+                                                },
+                                                "spacing": {
+                                                                                "stack-md": "24px",
+                                                                                "stack-lg": "48px",
+                                                                                "margin-desktop": "64px",
+                                                                                "unit": "4px",
+                                                                                "stack-sm": "8px",
+                                                                                "margin-mobile": "20px",
+                                                                                "gutter": "16px"
+                                                },
+                                                "fontFamily": {
+                                                                                "mono-data": [
+                                                                                                                "Space Mono"
+                                                                                ],
+                                                                                "display-lg": [
+                                                                                                                "Space Grotesk"
+                                                                                ],
+                                                                                "headline-md": [
+                                                                                                                "Space Grotesk"
+                                                                                ],
+                                                                                "body-md": [
+                                                                                                                "IBM Plex Sans"
+                                                                                ],
+                                                                                "headline-md-mobile": [
+                                                                                                                "Space Grotesk"
+                                                                                ],
+                                                                                "label-caps": [
+                                                                                                                "Space Mono"
+                                                                                ],
+                                                                                "body-lg": [
+                                                                                                                "IBM Plex Sans"
+                                                                                ]
+                                                },
+                                                "fontSize": {
+                                                                                "mono-data": [
+                                                                                                                "14px",
+                                                                                                                {
+                                                                                                                                                "lineHeight": "1.4",
+                                                                                                                                                "fontWeight": "400"
+                                                                                                                }
+                                                                                ],
+                                                                                "display-lg": [
+                                                                                                                "48px",
+                                                                                                                {
+                                                                                                                                                "lineHeight": "1.1",
+                                                                                                                                                "letterSpacing": "-0.02em",
+                                                                                                                                                "fontWeight": "700"
+                                                                                                                }
+                                                                                ],
+                                                                                "headline-md": [
+                                                                                                                "32px",
+                                                                                                                {
+                                                                                                                                                "lineHeight": "1.2",
+                                                                                                                                                "letterSpacing": "-0.01em",
+                                                                                                                                                "fontWeight": "500"
+                                                                                                                }
+                                                                                ],
+                                                                                "body-md": [
+                                                                                                                "16px",
+                                                                                                                {
+                                                                                                                                                "lineHeight": "1.5",
+                                                                                                                                                "fontWeight": "400"
+                                                                                                                }
+                                                                                ],
+                                                                                "headline-md-mobile": [
+                                                                                                                "24px",
+                                                                                                                {
+                                                                                                                                                "lineHeight": "1.2",
+                                                                                                                                                "fontWeight": "500"
+                                                                                                                }
+                                                                                ],
+                                                                                "label-caps": [
+                                                                                                                "12px",
+                                                                                                                {
+                                                                                                                                                "lineHeight": "1",
+                                                                                                                                                "letterSpacing": "0.2em",
+                                                                                                                                                "fontWeight": "700"
+                                                                                                                }
+                                                                                ],
+                                                                                "body-lg": [
+                                                                                                                "18px",
+                                                                                                                {
+                                                                                                                                                "lineHeight": "1.6",
+                                                                                                                                                "letterSpacing": "0.01em",
+                                                                                                                                                "fontWeight": "400"
+                                                                                                                }
+                                                                                ]
+                                                }
+                },
+                                },
+                        }
+                </script>
+
+                <style>
+                        .material-symbols-outlined {
+                                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+                        }
+
+                        /* Gradient for progress bars */
+                        .gradient-bar {
+                                background: linear-gradient(90deg, #4da8da 0%, #7dbd39 50%, #e25822 100%);
+                        }
+
+                        /* Overrides to enforce 0px border radius and specific brutalist styles */
+                        * {
+                                border-radius: 0 !important;
+                        }
+
+                        input:focus {
+                                box-shadow: none !important;
+                                border-color: #484a36 !important;
+                        }
+                </style>
+        </head>
+
+<script>
+    const API = "/data";
+        function formatValue(value, suffix) {
+                return value !== null && value !== undefined ? `${value}${suffix}` : `--${suffix}`;
+        }
+
+        function normalizePercent(value) {
+                const numeric = Number(value);
+                if (Number.isNaN(numeric)) {
+                        return 0;
+                }
+
+                return numeric <= 1 ? numeric * 100 : numeric;
+        }
+
+        function mapTemperatureToPercent(value, min = 10, max = 40) {
+                const n = Number(value);
+                if (Number.isNaN(n)) return 0;
+                const p = ((n - min) / (max - min)) * 100;
+                return Math.max(0, Math.min(100, p));
+        }
+
+        function renderSegmentBar(containerId, value, segmentCount, options = {}) {
+                const container = document.getElementById(containerId);
+                if (!container) {
+                        return;
+                }
+
+                const percent = normalizePercent(value);
+                const fillCount = Math.max(0, Math.min(segmentCount, Math.round((percent / 100) * segmentCount)));
+                const isAlert = (options.alertBelow !== undefined && percent < options.alertBelow) ||
+                        (options.alertAbove !== undefined && percent > options.alertAbove);
+                const segments = container.querySelectorAll("[data-segment]");
+
+                segments.forEach((segment, index) => {
+                        const isFilled = index < fillCount;
+                        segment.classList.toggle("bg-primary", isFilled && !isAlert);
+                        segment.classList.toggle("border-primary", isFilled && !isAlert);
+                        segment.classList.toggle("bg-error", isFilled && isAlert);
+                        segment.classList.toggle("border-error", isFilled && isAlert);
+                        segment.classList.toggle("bg-transparent", !isFilled);
+                        segment.classList.toggle("border-primary-container", !isFilled);
+                });
+        }
+
+        function renderProgressFill(innerId, percent, options = {}) {
+                const el = document.getElementById(innerId);
+                if (!el) return;
+                const clamped = Math.max(0, Math.min(100, Number.isNaN(Number(percent)) ? 0 : percent));
+                el.style.width = clamped + "%";
+                el.style.transition = "width 400ms ease";
+
+                const isAlert = (options.alertBelow !== undefined && clamped < options.alertBelow) ||
+                        (options.alertAbove !== undefined && clamped > options.alertAbove);
+                el.classList.toggle("bg-error", isAlert);
+                el.classList.toggle("bg-primary", !isAlert);
+        }
+
+  async function fetchData() {
+    try {
+      const res  = await fetch(API);
+      const rows = await res.json();
+      if (!rows.length) return;
+
+      const latest = rows[0];
+
+      document.getElementById("air-temp").textContent =
+        latest.air_temp !== null ? latest.air_temp + "°" : "--°";
+
+      document.getElementById("air-humidity").textContent =
+        latest.air_humidity !== null ? latest.air_humidity + "%" : "--%";
+
+      document.getElementById("soil-humidity").textContent =
+        latest.soil_humidity !== null ? latest.soil_humidity + "%" : "--%";
+
+      document.getElementById("heatpad-temp").textContent =
+        latest.heatpad_temp !== null ? latest.heatpad_temp + "°" : "--°";
+
+                        document.getElementById("led-power-value").textContent =
+                                formatValue(latest.led_power, "%");
+
+                        const cleanWaterPercent = normalizePercent(latest.clean_water);
+                        const dirtyWaterPercent = normalizePercent(latest.dirty_water);
+
+                        const cleanWaterValue = document.getElementById("clean-water-value");
+                        cleanWaterValue.textContent = formatValue(latest.clean_water, "%");
+                        cleanWaterValue.classList.toggle("text-error", cleanWaterPercent < 21);
+                        cleanWaterValue.classList.toggle("text-primary", cleanWaterPercent >= 21);
+
+                        const dirtyWaterValue = document.getElementById("dirty-water-value");
+                        dirtyWaterValue.textContent = formatValue(latest.dirty_water, "%");
+                        dirtyWaterValue.classList.toggle("text-error", dirtyWaterPercent > 79);
+                        dirtyWaterValue.classList.toggle("text-primary", dirtyWaterPercent <= 79);
+
+                        // Segmented bars
+                        renderSegmentBar("power-output-bar", latest.led_power, 10);
+                        renderSegmentBar("clean-water-bar", latest.clean_water, 5, { alertBelow: 21 });
+                        renderSegmentBar("dirty-water-bar", latest.dirty_water, 5, { alertAbove: 79 });
+
+                        // Temperature tracker: map air temp to a 10..40°C range by default
+                        const airTempPercent = mapTemperatureToPercent(latest.air_temp, 10, 40);
+                        const tracker = document.getElementById('air-temp-tracker');
+                        if (tracker) tracker.style.left = airTempPercent + '%';
+
+                        // Heat pad fill: map 0..60°C
+                        const heatpadPercent = mapTemperatureToPercent(latest.heatpad_temp, 0, 60);
+                        renderProgressFill('heatpad-fill', heatpadPercent);
+
+                        // Humidity fills (values may be 0..1 or 0..100)
+                        const airHum = normalizePercent(latest.air_humidity);
+                        const soilHum = normalizePercent(latest.soil_humidity);
+                        renderProgressFill('air-humidity-fill', airHum);
+                        renderProgressFill('soil-humidity-fill', soilHum);
+
+    } catch (e) {
+      console.error("Could not reach API:", e);
+    }
+  }
+
+        // initialize after DOM is ready so elements exist
+        document.addEventListener('DOMContentLoaded', () => {
+                fetchData();
+                setInterval(fetchData, 10000);
+
+                // wire save buttons after DOM is available
+                wireSave('set-temp-input', 'save-temp-btn', 'set_temp');
+                wireSave('air-hum-target-input', 'save-hum-btn', 'air_humidity_target');
+                wireSave('brightness-input', 'save-brightness-btn', 'brightness');
+        });
+
+        // --- Save settings handlers ---
+        const SETTINGS_ENDPOINT = API.replace(/\/data$/, '') + '/settings';
+
+        async function postSettings(payload) {
+                try {
+                        const res = await fetch(SETTINGS_ENDPOINT, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(payload),
+                        });
+                        return res.ok;
+                } catch (e) {
+                        return false;
+                }
+        }
+
+        function wireSave(inputId, btnId, keyName) {
+                const inp = document.getElementById(inputId);
+                const btn = document.getElementById(btnId);
+                if (!inp || !btn) return;
+
+                // enable when changed
+                inp.addEventListener('input', () => { btn.disabled = false; });
+
+                btn.addEventListener('click', async () => {
+                        const val = Number(inp.value);
+                        btn.disabled = true;
+                        const prev = btn.textContent;
+                        btn.textContent = 'Saving...';
+
+                        const payload = {};
+                        payload[keyName] = Number.isNaN(val) ? inp.value : val;
+
+                        const ok = await postSettings(payload);
+                        // always persist locally as fallback
+                        try { localStorage.setItem(keyName, JSON.stringify(payload[keyName])); } catch (e) {}
+
+                        if (ok) {
+                                btn.textContent = 'Saved';
+                        } else {
+                                btn.textContent = 'Saved (local)';
+                        }
+
+                        setTimeout(() => { btn.textContent = prev; btn.disabled = true; }, 1200);
+                });
+
+                // populate from localStorage if present
+                try {
+                        const stored = localStorage.getItem(keyName);
+                        if (stored !== null) {
+                                const parsed = JSON.parse(stored);
+                                if (parsed !== null && parsed !== undefined) inp.value = parsed;
+                        }
+                } catch (e) {}
+        }
+
+        
+</script>
+
+        
+        <body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md selection:bg-primary selection:text-surface">
+                <!-- TopAppBar -->
+                <header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-20 bg-surface dark:bg-surface-dim rounded-none border-b border-primary-container dark:border-outline-variant flat no shadows">
+                        <div class="flex items-center gap-4">
+                                <span class="font-headline-md text-headline-md-mobile md:text-headline-md tracking-tighter font-bold text-primary dark:text-primary-fixed">VITRINA VERDE DASHBOARD</span>
+                        </div>
+
+                        <nav class="hidden md:flex gap-2">
+                                <!-- Simulated Nav Links -->
+                                <button class="text-primary dark:text-on-surface-variant border border-primary-container dark:border-outline-variant px-4 py-2 font-label-caps text-label-caps hover:bg-primary hover:text-surface dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-colors duration-75 scale-100 active:scale-[0.98] transition-transform">
+                                        OVERVIEW
+                                </button>
+                                <button class="bg-primary text-surface dark:bg-primary-fixed dark:text-on-primary-fixed px-4 py-2 font-label-caps text-label-caps scale-100 active:scale-[0.98] transition-transform">
+                                        DEVICES
+                                </button>
+                        </nav>
+
+                        <div class="flex items-center gap-4"></div>
+                </header>
+
+                <!-- Main Canvas -->
+                <main class="flex-grow p-margin-mobile md:p-margin-desktop w-full max-w-7xl mx-auto flex flex-col gap-8">
+                        <!-- Header / Context -->
+                        <div class="flex flex-col gap-2 border-l-[4px] border-primary pl-4 py-1">
+                                <h1 class="font-headline-md text-headline-md text-primary tracking-tighter">CIFRA 1</h1>
+                                <p class="font-mono-data text-mono-data text-primary-container">CIFRA 1: ACTIVE // STATUS: NOMINAL</p>
+                        </div>
+
+                        <!-- Grid Layout for Dashboard Widgets -->
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                                <!-- Temperature Widget (Span 8) -->
+                                <section class="col-span-1 md:col-span-8 border border-primary-container p-6 flex flex-col gap-6 bg-surface">
+                                        <div class="flex justify-between items-start border-b border-primary-container pb-4">
+                                                <h2 class="font-label-caps text-label-caps text-primary">TEMPERATURE CTRL</h2>
+                                                <span class="material-symbols-outlined text-primary" data-icon="thermostat">thermostat</span>
+                                        </div>
+
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                                                <!-- Air Temp -->
+                                                <div class="flex flex-col gap-4">
+                                                        <div class="flex justify-between items-end">
+                                                                <span class="font-mono-data text-mono-data text-primary-container">AIR TEMP</span>
+                                                                <span id="air-temp" class="font-display-lg text-display-lg text-primary">--°</span>
+                                                        </div>
+
+                                                        <div class="relative h-6 w-full border border-primary-container bg-surface overflow-hidden">
+                                                                <div id="air-temp-gradient" class="absolute inset-0 gradient-bar opacity-80"></div>
+                                                                <!-- Tracker Line (position updated from sensor value) -->
+                                                                <div id="air-temp-tracker" class="absolute top-0 bottom-0 left-[40%] w-[2px] bg-primary z-10 shadow-[0_0_4px_rgba(0,0,0,0.5)]" style="left:40%"></div>
+                                                        </div>
+
+                                                        <div class="flex justify-between items-center gap-4 mt-2">
+                                                                <label class="font-mono-data text-mono-data text-primary-container whitespace-nowrap">SET TEMP:</label>
+                                                                <div class="flex items-center gap-2">
+                                                                        <input id="set-temp-input" class="w-20 bg-transparent border-0 border-b border-primary-container font-mono-data text-mono-data text-primary text-right p-1 focus:ring-0" type="number" value="25"/>
+                                                                        <button id="save-temp-btn" class="px-3 py-1 bg-primary text-surface text-[12px] font-label-caps" disabled>SAVE</button>
+                                                                </div>
+                                                        </div>
+                                                </div>
+
+                                                <!-- Heat Pad Temp -->
+                                                <div class="flex flex-col gap-4">
+                                                        <div class="flex justify-between items-end">
+                                                                <span class="font-mono-data text-mono-data text-primary-container">HEAT PAD</span>
+                                                                <span id="heatpad-temp" class="font-display-lg text-display-lg text-primary">--°</span>
+                                                        </div>
+
+                                                        <div class="relative h-6 w-full border border-primary-container bg-surface overflow-hidden">
+                                                                <div id="heatpad-fill" class="absolute inset-y-0 left-0 w-[60%] bg-primary" style="width:60%"></div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </section>
+
+                                <!-- Light Fixture Widget (Span 4) -->
+                                <section class="col-span-1 md:col-span-4 border border-primary-container p-6 flex flex-col gap-6 bg-surface">
+                                        <div class="flex justify-between items-start border-b border-primary-container pb-4">
+                                                <h2 class="font-label-caps text-label-caps text-primary">LIGHT</h2>
+                                                <span class="material-symbols-outlined text-primary" data-icon="lightbulb">lightbulb</span>
+                                        </div>
+
+                                        <div class="flex flex-col gap-6 h-full justify-between">
+                                                <div class="flex flex-col gap-2">
+                                                        <div class="flex items-center justify-between gap-4">
+                                                                <span class="font-mono-data text-mono-data text-primary-container">POWER OUTPUT</span>
+                                                                <span id="led-power-value" class="font-mono-data text-mono-data text-primary-container">--%</span>
+                                                        </div>
+                                                        <!-- Block Bar (e.g. 70%) -->
+                                                        <div id="power-output-bar" class="w-full h-8 flex gap-1">
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                        </div>
+                                                </div>
+
+                                                <div class="flex flex-col gap-4">
+                                                        <div class="grid grid-cols-2 gap-4 border-b border-primary-container pb-2 justify-between">
+                                                                <div class="flex flex-col gap-1">
+                                                                        <label class="font-label-caps text-label-caps text-primary-container text-[10px]">START TIME</label>
+                                                                        <input class="w-full bg-transparent border-0 font-mono-data text-mono-data text-primary p-0 focus:ring-0" type="text" value="08:30"/>
+                                                                </div>
+                                                                <div class="flex flex-col gap-1 items-end">
+                                                                        <label class="font-label-caps text-label-caps text-primary-container text-[10px]">STOP TIME</label>
+                                                                        <input class="w-full bg-transparent border-0 font-mono-data text-mono-data text-primary p-0 focus:ring-0 text-right" type="text" value="17:45"/>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="grid gap-4">
+                                                                <div class="flex flex-col gap-1">
+                                                                        <label class="font-label-caps text-label-caps text-primary-container text-[10px]">BRIGHTNESS %</label>
+                                                                        <div class="flex items-center gap-2">
+                                                                                <input id="brightness-input" class="w-full bg-transparent border border-primary-container font-mono-data text-mono-data text-primary p-2 focus:ring-0" type="number" value="70"/>
+                                                                                <button id="save-brightness-btn" class="px-3 py-1 bg-primary text-surface text-[12px] font-label-caps" disabled>SAVE</button>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </section>
+
+                                <!-- Humidity Widget (Span 6) -->
+                                <section class="col-span-1 md:col-start-1 md:col-span-6 border border-primary-container p-6 flex flex-col gap-6 bg-surface">
+                                        <div class="flex justify-between items-start border-b border-primary-container pb-4">
+                                                <h2 class="font-label-caps text-label-caps text-primary">HUMIDITY CTRL</h2>
+                                                <span class="material-symbols-outlined text-primary" data-icon="humidity_mid">humidity_mid</span>
+                                        </div>
+
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                                                <!-- Air Humidity -->
+                                                <div class="flex flex-col gap-4">
+                                                        <div class="flex justify-between items-end">
+                                                                <span class="font-mono-data text-mono-data text-primary-container">AIR HUMIDITY</span>
+                                                                <span id="air-humidity" class="font-display-lg text-display-lg text-primary">--%</span>
+                                                        </div>
+
+                                                        <div class="relative h-6 w-full border border-primary-container bg-surface overflow-hidden">
+                                                                <div id="air-humidity-fill" class="absolute inset-y-0 left-0 w-[65%] bg-primary" style="width:65%"></div>
+                                                        </div>
+
+                                                        <div class="flex justify-between items-center gap-4 mt-2">
+                                                                <label class="font-mono-data text-mono-data text-primary-container whitespace-nowrap">TARGET %:</label>
+                                                                <div class="flex items-center gap-2">
+                                                                        <input id="air-hum-target-input" class="w-20 bg-transparent border-0 border-b border-primary-container font-mono-data text-mono-data text-primary text-right p-1 focus:ring-0" type="number" value="70"/>
+                                                                        <button id="save-hum-btn" class="px-3 py-1 bg-primary text-surface text-[12px] font-label-caps" disabled>SAVE</button>
+                                                                </div>
+                                                        </div>
+                                                </div>
+
+                                                <!-- Soil Humidity -->
+                                                <div class="flex flex-col gap-4">
+                                                        <div class="flex justify-between items-end">
+                                                                <span class="font-mono-data text-mono-data text-primary-container">SOIL MOISTURE</span>
+                                                                <span id="soil-humidity" class="font-display-lg text-display-lg text-primary">--%</span>
+                                                        </div>
+
+                                                        <div class="relative h-6 w-full border border-primary-container bg-surface overflow-hidden">
+                                                                <div id="soil-humidity-fill" class="absolute inset-y-0 left-0 w-[42%] bg-primary" style="width:42%"></div>
+                                                        </div>
+                                                </div>
+                                                </div>
+                                </section>
+
+                                <!-- Water Tanks (Span 3) -->
+                                <section class="col-span-1 md:col-start-7 md:col-span-3 border border-primary-container p-6 flex flex-col gap-6 bg-surface">
+                                        <div class="flex justify-between items-start border-b border-primary-container pb-4">
+                                                <h2 class="font-label-caps text-label-caps text-primary">WATER TANKS</h2>
+                                                <span class="material-symbols-outlined text-primary" data-icon="water_drop">water_drop</span>
+                                        </div>
+
+                                        <div class="flex flex-col gap-6 flex-grow justify-center">
+                                                <!-- Clean Water -->
+                                                <div class="flex flex-col gap-2">
+                                                        <div class="flex justify-between items-center gap-4">
+                                                                <span class="font-mono-data text-mono-data text-primary">CLEAN WATER</span>
+                                                                <span id="clean-water-value" class="font-mono-data text-mono-data text-primary font-bold">--%</span>
+                                                        </div>
+
+                                                        <!-- Block Bar (e.g. 10%) -->
+                                                        <div id="clean-water-bar" class="w-full h-4 flex gap-1">
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                        </div>
+                                                </div>
+
+                                                <!-- Runoff Water -->
+                                                <div class="flex flex-col gap-2">
+                                                        <div class="flex justify-between items-center gap-4">
+                                                                <span class="font-mono-data text-mono-data text-primary">RUNOFF</span>
+                                                                <span id="dirty-water-value" class="font-mono-data text-mono-data text-primary font-bold">--%</span>
+                                                        </div>
+
+                                                        <!-- Block Bar (e.g. 60%) -->
+                                                        <div id="dirty-water-bar" class="w-full h-4 flex gap-1">
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                                <div data-segment="true" class="flex-1 bg-transparent border border-primary-container"></div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </section>
+
+                                <!-- System Debug (Span 3) -->
+                                <section class="col-span-1 md:col-start-10 md:col-span-3 border border-primary-container bg-surface flex flex-col">
+                                        <div class="flex justify-between items-start border-b border-primary-container p-6 pb-4">
+                                                <h2 class="font-label-caps text-label-caps text-primary">SYSTEM DEBUG</h2>
+                                                <span class="material-symbols-outlined text-primary" data-icon="developer_board">developer_board</span>
+                                        </div>
+
+                                        <ul class="flex flex-col divide-y divide-primary-container">
+                                                <!-- Pump -->
+                                                <li class="p-4 flex flex-col gap-3">
+                                                        <div class="flex justify-between items-center">
+                                                                <span class="font-mono-data text-mono-data text-primary">HEAT PAD</span>
+                                                                <div class="flex items-center border border-primary-container">
+                                                                        <span class="px-2 font-mono-data text-[10px] text-primary-container">SET:</span>
+                                                                        <input class="w-12 bg-transparent border-0 font-mono-data text-[12px] text-primary text-center p-1 focus:ring-0" type="number" value="28"/>
+                                                                        <span class="px-1 font-mono-data text-[10px] text-primary-container">°C</span>
+                                                                </div>
+                                                        </div>
+                                                </li>
+
+                                                <li class="p-4 flex flex-col gap-3">
+                                                        <div class="flex justify-between items-center">
+                                                                <span class="font-mono-data text-mono-data text-primary">PUMP 01</span>
+                                                                <div class="flex border border-primary">
+                                                                        <button class="px-2 py-1 font-label-caps text-[10px] bg-primary text-surface">ON</button>
+                                                                        <button class="px-2 py-1 font-label-caps text-[10px] bg-transparent text-primary hover:bg-surface-variant">OFF</button>
+                                                                </div>
+                                                        </div>
+                                                </li>
+
+                                                <!-- Fan -->
+                                                <li class="p-4 flex flex-col gap-3">
+                                                        <div class="flex justify-between items-center">
+                                                                <span class="font-mono-data text-mono-data text-primary">EXHAUST FAN</span>
+                                                                <div class="flex border border-primary">
+                                                                        <button class="px-2 py-1 font-label-caps text-[10px] bg-primary text-surface">ON</button>
+                                                                        <button class="px-2 py-1 font-label-caps text-[10px] bg-transparent text-primary hover:bg-surface-variant">OFF</button>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="flex justify-between items-center">
+                                                                <span class="font-mono-data text-mono-data text-primary-container text-[12px]">1200 RPM</span>
+                                                                <div class="flex items-center border border-primary-container">
+                                                                        <input class="w-12 bg-transparent border-0 font-mono-data text-[12px] text-primary text-center p-1 focus:ring-0" type="number" value="100"/>
+                                                                        <span class="px-1 font-mono-data text-[10px] text-primary-container">%</span>
+                                                                </div>
+                                                        </div>
+                                                </li>
+
+                                                <!-- Hatch -->
+                                                <li class="p-4 flex flex-col gap-3">
+                                                        <div class="flex justify-between items-center">
+                                                                <span class="font-mono-data text-mono-data text-primary">VENT HATCH</span>
+                                                                <span class="font-mono-data text-[10px] px-2 py-0.5 border border-primary text-primary bg-surface-variant font-bold">CLOSED</span>
+                                                        </div>
+
+                                                        <button class="w-full border border-primary bg-transparent text-primary py-1 font-label-caps text-label-caps hover:bg-primary hover:text-surface transition-colors">
+                                                                TOGGLE
+                                                        </button>
+                                                </li>
+                                        </ul>
+                                </section>
+                        </div>
+                </main>
+        </body>
+</html>

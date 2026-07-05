@@ -1,0 +1,15 @@
+# Data / database
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Docker
+*.log

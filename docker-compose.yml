@@ -1,0 +1,47 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+
+  init-db:
+    build:
+      context: .
+      dockerfile: Dockerfile.initdb
+    container_name: init-db
+    volumes:
+      - ./data:/app/data
+
+  monitor-broker:
+    build: ./monitorBroker
+    container_name: monitor-broker
+    restart: unless-stopped
+    depends_on:
+      mosquitto:
+        condition: service_started
+      init-db:
+        condition: service_completed_successfully
+    volumes:
+      - ./data:/app/data
+
+  api:
+    build: ./api
+    container_name: api
+    restart: unless-stopped
+    depends_on:
+      init-db:
+        condition: service_completed_successfully
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./data:/app/data
+
+volumes:
+  mosquitto_data:
+  mosquitto_log:
